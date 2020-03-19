@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-paiement-heading" jhiTranslate="softricApp.paiement.home.createOrEditLabel">Create or edit a Paiement</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="softricApp.paiement.datePaiement" for="field_datePaiement">Date Paiement</label>
+                    <div class="input-group">
+                        <input id="field_datePaiement" type="text" class="form-control" name="datePaiement" ngbDatepicker #datePaiementDp="ngbDatepicker" formControlName="datePaiement"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="datePaiementDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('datePaiement')!.invalid && (editForm.get('datePaiement')!.dirty || editForm.get('datePaiement')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('datePaiement')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="softricApp.paiement.montantPaiement" for="field_montantPaiement">Montant Paiement</label>
+                    <input type="number" class="form-control" name="montantPaiement" id="field_montantPaiement"
+                           formControlName="montantPaiement"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="softricApp.paiement.operation" for="field_operation">Operation</label>
+                    <select class="form-control" id="field_operation" name="operation" formControlName="operation">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="operationOption.id === editForm.get('operation')!.value?.id ? editForm.get('operation')!.value : operationOption" *ngFor="let operationOption of operations; trackBy: trackById">{{ operationOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="softricApp.paiement.client" for="field_client">Client</label>
+                    <select class="form-control" id="field_client" name="client" formControlName="client">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="clientOption.id === editForm.get('client')!.value?.id ? editForm.get('client')!.value : clientOption" *ngFor="let clientOption of clients; trackBy: trackById">{{ clientOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="softricApp.paiement.employe" for="field_employe">Employe</label>
+                    <select class="form-control" id="field_employe" name="employe" formControlName="employe">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="employeOption.id === editForm.get('employe')!.value?.id ? editForm.get('employe')!.value : employeOption" *ngFor="let employeOption of employes; trackBy: trackById">{{ employeOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

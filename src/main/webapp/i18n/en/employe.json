@@ -1,0 +1,28 @@
+{
+  "softricApp": {
+    "employe": {
+      "home": {
+        "title": "Employes",
+        "createLabel": "Create a new Employe",
+        "createOrEditLabel": "Create or edit a Employe",
+        "notFound": "No Employes found"
+      },
+      "created": "A new Employe is created with identifier {{ param }}",
+      "updated": "A Employe is updated with identifier {{ param }}",
+      "deleted": "A Employe is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Employe {{ id }}?"
+      },
+      "detail": {
+        "title": "Employe"
+      },
+      "nom": "Nom",
+      "prenom": "Prenom",
+      "telephone": "Telephone",
+      "numCni": "Num Cni",
+      "user": "User",
+      "agence": "Agence",
+      "poste": "Poste"
+    }
+  }
+}

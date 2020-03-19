@@ -1,0 +1,50 @@
+{
+    "name": "Operation",
+    "fields": [
+        {
+            "fieldName": "dateOperation",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "montantTotal",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "client",
+            "otherEntityRelationshipName": "operation",
+            "relationshipName": "client",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "typeOperation",
+            "otherEntityRelationshipName": "operation",
+            "relationshipName": "typeOperation",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "employe",
+            "otherEntityRelationshipName": "operation",
+            "relationshipName": "employe",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200319052600",
+    "entityTableName": "operation",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

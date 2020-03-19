@@ -1,0 +1,24 @@
+{
+  "softricApp": {
+    "ligneOperation": {
+      "home": {
+        "title": "Ligne Operations",
+        "createLabel": "Create a new Ligne Operation",
+        "createOrEditLabel": "Create or edit a Ligne Operation",
+        "notFound": "No Ligne Operations found"
+      },
+      "created": "A new Ligne Operation is created with identifier {{ param }}",
+      "updated": "A Ligne Operation is updated with identifier {{ param }}",
+      "deleted": "A Ligne Operation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Ligne Operation {{ id }}?"
+      },
+      "detail": {
+        "title": "Ligne Operation"
+      },
+      "quantite": "Quantite",
+      "operation": "Operation",
+      "produit": "Produit"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="operation">
+            <h2><span jhiTranslate="softricApp.operation.detail.title">Operation</span> {{ operation.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="softricApp.operation.dateOperation">Date Operation</span></dt>
+                <dd>
+                    <span>{{ operation.dateOperation }}</span>
+                </dd>
+                <dt><span jhiTranslate="softricApp.operation.montantTotal">Montant Total</span></dt>
+                <dd>
+                    <span>{{ operation.montantTotal }}</span>
+                </dd>
+                <dt><span jhiTranslate="softricApp.operation.client">Client</span></dt>
+                <dd>
+                    <div *ngIf="operation.client">
+                        <a [routerLink]="['/client', operation.client?.id, 'view']">{{ operation.client?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="softricApp.operation.typeOperation">Type Operation</span></dt>
+                <dd>
+                    <div *ngIf="operation.typeOperation">
+                        <a [routerLink]="['/type-operation', operation.typeOperation?.id, 'view']">{{ operation.typeOperation?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="softricApp.operation.employe">Employe</span></dt>
+                <dd>
+                    <div *ngIf="operation.employe">
+                        <a [routerLink]="['/employe', operation.employe?.id, 'view']">{{ operation.employe?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/operation', operation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

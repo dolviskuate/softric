@@ -1,0 +1,50 @@
+{
+    "name": "Paiement",
+    "fields": [
+        {
+            "fieldName": "datePaiement",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "montantPaiement",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "operation",
+            "otherEntityRelationshipName": "paiement",
+            "relationshipName": "operation",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "client",
+            "otherEntityRelationshipName": "paiement",
+            "relationshipName": "client",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "employe",
+            "otherEntityRelationshipName": "paiement",
+            "relationshipName": "employe",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200319053200",
+    "entityTableName": "paiement",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

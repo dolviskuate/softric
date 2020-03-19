@@ -1,0 +1,69 @@
+entity Client{
+nom String required
+prenom String
+telephone Long
+}
+entity Operation{
+dateOperation LocalDate required
+montantTotal Long
+}
+entity TypeOperation{
+libelle Long
+}
+entity LigneOperation{
+quantite String
+}
+entity Employe{
+nom String required
+prenom String
+telephone Long
+numCni Long
+}
+entity Poste{
+libelle String
+}
+entity Categorie{
+libelle String
+}
+entity Paiement{
+datePaiement LocalDate required
+montantPaiement Long
+}
+entity Produit{
+designation String required
+quantiteStock Long
+quantiteMinimale Long
+}
+entity Agence{
+nom String required
+ville String
+telephone Long
+}
+
+relationship ManyToOne{
+Employe{agence} to Agence
+Employe{poste} to Poste
+Operation{client} to Client
+Operation{typeOperation} to TypeOperation
+Operation{employe} to Employe
+LigneOperation{operation} to Operation
+LigneOperation{produit} to Produit
+Paiement{operation} to Operation
+Paiement{client} to Client
+Paiement{employe} to Employe
+Produit{categorie} to Categorie
+}
+
+relationship OneToOne{
+Employe{user} to User
+}
+
+
+// Set pagination options
+paginate all with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl

@@ -1,0 +1,36 @@
+{
+    "name": "LigneOperation",
+    "fields": [
+        {
+            "fieldName": "quantite",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "operation",
+            "otherEntityRelationshipName": "ligneOperation",
+            "relationshipName": "operation",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "produit",
+            "otherEntityRelationshipName": "ligneOperation",
+            "relationshipName": "produit",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200319052800",
+    "entityTableName": "ligne_operation",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

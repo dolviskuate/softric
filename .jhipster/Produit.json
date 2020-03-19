@@ -1,0 +1,40 @@
+{
+    "name": "Produit",
+    "fields": [
+        {
+            "fieldName": "designation",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "quantiteStock",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "quantiteMinimale",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "categorie",
+            "otherEntityRelationshipName": "produit",
+            "relationshipName": "categorie",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200319053300",
+    "entityTableName": "produit",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

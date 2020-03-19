@@ -1,0 +1,24 @@
+{
+  "softricApp": {
+    "ligneOperation": {
+      "home": {
+        "title": "LigneOperations",
+        "createLabel": "Créer un nouveau Ligne Operation",
+        "createOrEditLabel": "Créer ou éditer un Ligne Operation",
+        "notFound": "Aucun Ligne Operation trouvé"
+      },
+      "created": "Un nouveau Ligne Operation a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Ligne Operation avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Ligne Operation avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Ligne Operation {{ id }} ?"
+      },
+      "detail": {
+        "title": "Ligne Operation"
+      },
+      "quantite": "Quantite",
+      "operation": "Operation",
+      "produit": "Produit"
+    }
+  }
+}

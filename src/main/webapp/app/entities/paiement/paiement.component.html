@@ -1,0 +1,91 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="softricApp.paiement.home.title">Paiements</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-paiement" [routerLink]="['/paiement/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="softricApp.paiement.home.createLabel">
+            Create a new Paiement
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="paiements?.length === 0">
+        <span jhiTranslate="softricApp.paiement.home.notFound">No paiements found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="paiements?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="datePaiement"><span jhiTranslate="softricApp.paiement.datePaiement">Date Paiement</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="montantPaiement"><span jhiTranslate="softricApp.paiement.montantPaiement">Montant Paiement</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="operation.id"><span jhiTranslate="softricApp.paiement.operation">Operation</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="client.id"><span jhiTranslate="softricApp.paiement.client">Client</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="employe.id"><span jhiTranslate="softricApp.paiement.employe">Employe</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let paiement of paiements ;trackBy: trackId">
+                    <td><a [routerLink]="['/paiement', paiement.id, 'view']">{{ paiement.id }}</a></td>
+                    <td>{{ paiement.datePaiement | date:'mediumDate' }}</td>
+                    <td>{{ paiement.montantPaiement }}</td>
+                    <td>
+                        <div *ngIf="paiement.operation">
+                            <a [routerLink]="['/operation', paiement.operation?.id, 'view']" >{{ paiement.operation?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="paiement.client">
+                            <a [routerLink]="['/client', paiement.client?.id, 'view']" >{{ paiement.client?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="paiement.employe">
+                            <a [routerLink]="['/employe', paiement.employe?.id, 'view']" >{{ paiement.employe?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/paiement', paiement.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/paiement', paiement.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(paiement)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="paiements?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>
