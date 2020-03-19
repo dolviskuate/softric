@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.ric",
+      "nativeLanguage": "fr"
+    },
+    "jhipsterVersion": "6.8.0",
+    "applicationType": "monolith",
+    "baseName": "softric",
+    "packageName": "com.ric",
+    "packageFolder": "com/ric",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "Mzg2ZTBmY2I2Y2FjYWI5Mzk1MDQwNTU3ZGIzYzBlMTMwNTA3MGExNjgyNzdlOWFiM2NlYTYxNjAxZWYwNjhiYWQwYTA1YzNmMDYyNmFmMTU5ZGNiOTU1NjY4MTk1OGQ0MDc1NzdkYzMyM2FjZjA3ODNkOTI2MThlNWUyYTcxODI=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "cosmo",
+    "clientThemeVariant": "primary",
+    "creationTimestamp": 1584590546938,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "fr",
+    "languages": ["fr", "en"],
+    "blueprints": []
+  }
+}
